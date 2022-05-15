@@ -1,0 +1,59 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "signupUsers": [
+    {
+      "name": "shubham",
+      "loginId": "shubham@123",
+      "password": "123123",
+      "id": 1
+    },
+    {
+      "name": "admin",
+      "loginId": "admin@123",
+      "password": "123123",
+      "id": 2
+    },
+    {
+      "name": "Suraj",
+      "loginId": "suraj@2696",
+      "password": "22112696",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Laptop",
+      "price": "53000",
+      "description": "HP Pavilion new launched.",
+      "image": "-"
+    },
+    {
+      "id": 2,
+      "title": "Mobile",
+      "price": "15000",
+      "description": "New launched OnePlus Nord 2 (5G)",
+      "image": "-"
+    },
+    {
+      "id": 3,
+      "title": "new product",
+      "price": "10000",
+      "description": "My new Product",
+      "image": "aa"
+    }
+  ]
+}
