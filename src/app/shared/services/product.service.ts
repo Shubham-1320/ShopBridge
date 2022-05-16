@@ -5,7 +5,11 @@ import { map, tap } from "rxjs";
 
 @Injectable()
 export class ProductService{
-    productUrl : string = "http://localhost:3000/products"
+    // productUrl : string = "http://localhost:3000/products"
+    // productUrl : string = "https://fakestoreapi.com/products"
+    productUrl : string = "https://shopbridge-3ab09-default-rtdb.firebaseio.com/products.json"
+    
+
 
     constructor(private http : HttpClient){}
 
@@ -34,6 +38,8 @@ export class ProductService{
         //update product
 
      updateProductData(id: any , editProduct: any){
+         console.log(this.productUrl)
+         
          return this.http.put(this.productUrl+`/${id}`, editProduct)
      }
 

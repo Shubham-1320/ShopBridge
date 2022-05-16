@@ -12,7 +12,7 @@
                   <th>Product Name</th>
                   <th>Description</th>
                   <th>Price</th>
-                  <th>Image Url</th>
+                  <th>Image</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -22,7 +22,7 @@
                   <td>{{product.title | uppercase}}</td>
                   <td>{{product.description}}</td>
                   <td>{{product.price | currency: 'INR'}}</td>
-                  <td><img [src]="product.image" *ngIf="product.imageUrl" style="float:right" width="75"><source>{{product.image}}<source></td>
+                  <td><img [src]="product.image" *ngIf="product.image" style="float:right" width="75"></td>
                   <td>
                     <div class="btn-group mt-2">
                    
@@ -107,8 +107,8 @@
         <h5>All fields are mandatory..!</h5>
           <form action="" [formGroup]="editForm">
             <div class="form-group">
-              <!-- <label for="">Product Id</label>
-              <input type="text" class="form-control" formControlName="id"> -->
+              <label for="">Product Id</label>
+              <input type="text" class="form-control" formControlName="id">
           </div>
               <div class="form-group">
                   <label for="">Product Name</label>
