@@ -16,7 +16,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-
+import { provideFirebaseApp, initializeApp} from '@angular/fire/app';
+import { provideDatabase,getDatabase} from '@angular/fire/database';
+import { environment } from 'src/environments/environment.prod'; 
 
 @NgModule({
   declarations: [
@@ -38,6 +40,9 @@ import { SignupComponent } from './signup/signup.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
+    provideFirebaseApp(()=> initializeApp(environment.firebase)),
+    provideDatabase(()=>getDatabase())
+   
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

@@ -76,17 +76,6 @@ export class ProductAdminComponent implements OnInit , AfterViewInit {
     })
   }
 
-//delete existing product
-onDelete(deleteProduct: any){
-  this.productServe.deleteProductData(deleteProduct.id).subscribe((data) => {
-    console.log(data)
-    this.getProductData()
-    console.log('Product Deleted')
-  })
-}
-
-
-
   //on edit modal
   onEditModal(editProduct : any){
     console.log('edit is working')
@@ -107,6 +96,7 @@ onDelete(deleteProduct: any){
   //updating existing product
   onUpdate(){
     let editProduct = this.editForm.value;
+    console.log(editProduct)
     this.productServe.updateProductData(editProduct.id , editProduct).subscribe((data:any) => {
       console.log(data)
       this.getProductData()
@@ -115,7 +105,16 @@ onDelete(deleteProduct: any){
     })
   }
 
-  
+  //delete existing product
+
+  onDelete(deleteProduct: any){
+  this.productServe.deleteProductData(deleteProduct.id).subscribe((data) => {
+    console.log(data)
+    this.getProductData()
+    console.log('Product Deleted')
+  })
+}
+
 
 
 }

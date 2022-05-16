@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { find } from 'rxjs';
+import { find, map } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -23,9 +23,18 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    this.http.get("http://localhost:3000/signupUsers")
-    .subscribe((res:any)=>{
-      const user = res.find((val:any)=>{
+    // console.log(this.http.get("https://shopbridge-3ab09-default-rtdb.firebaseio.com/signupUsers"))
+    this.http.get("https://shopbridge-3ab09-default-rtdb.firebaseio.com/signupUsers.json")
+    .pipe(map((res:any)=>{
+      let usreArr = [];
+      for(let key in res){
+        usreArr.push(res[key])
+      }
+      return usreArr
+    }))
+    .subscribe((data:any)=>{
+      console.log('productdata',data);
+      const user = data.find((val:any)=>{
         return val.loginId === this.loginForm.value.loginId &&
         val.password === this.loginForm.value.password
       });
@@ -40,9 +49,6 @@ export class LoginComponent implements OnInit {
     },err=>{
       alert('Somthing went wrong..!!')
     });
-
-    
-
   }
 
 

@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
   }
 
   ngSignUp(){
-    this.http.post("http://localhost:3000/signupUsers",this.signUpForm.value)
+    this.http.post("https://shopbridge-3ab09-default-rtdb.firebaseio.com/signupUsers.json",this.signUpForm.value)
     .subscribe(res=>{
       alert('Signup Successful..')
       this.route.navigate(['login'])
